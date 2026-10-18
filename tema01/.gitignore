@@ -1,7 +1,0 @@
-
-*.bak
-*.mdf
-*.ldf
-*.csv
-*.env
-secretos*
