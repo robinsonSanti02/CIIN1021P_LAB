@@ -1,6 +1,4 @@
-/* TEMA 01 | EJERCICIO 06 | AMPLIACION: ejecutar al final.
-   Regla simulada de 24 meses: NO equivale a un plazo legal de historia clinica.
-*/
+--TEMA 06
 USE BDDataSaludTema01;
 GO
 IF NOT EXISTS (SELECT 1 FROM dbo.Paciente WHERE CodigoPaciente='PAC-004')
