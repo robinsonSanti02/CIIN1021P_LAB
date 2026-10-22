@@ -1,4 +1,4 @@
---TEMA 06
+--TEMA 01 / EJERCICIO 6
 USE BDDataSaludTema01;
 GO
 IF NOT EXISTS (SELECT 1 FROM dbo.Paciente WHERE CodigoPaciente='PAC-004')
