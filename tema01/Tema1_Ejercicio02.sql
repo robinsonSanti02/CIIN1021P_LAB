@@ -1,4 +1,4 @@
-/* TEMA 01 | EJERCICIO 02 | Ejecutar luego del 01. */
+--TEMA 02
 USE BDDataSaludTema01;
 GO
 CREATE OR ALTER FUNCTION dbo.ufn_ClasificarDuracionAtencion(@Minutos INT)
@@ -29,5 +29,3 @@ SELECT V.Minutos,
        dbo.ufn_ClasificarDuracionAtencion(V.Minutos) AS Clasificacion
 FROM (VALUES (5),(15),(16),(25),(30),(31),(60)) AS V(Minutos);
 GO
-/* Reflexion: centralizar CASE elimina duplicidad y mantiene una sola version de
-   las reglas CORTA / REGULAR / PROLONGADA para otras consultas y procedimientos. */
