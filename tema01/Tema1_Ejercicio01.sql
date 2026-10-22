@@ -1,7 +1,4 @@
-/* TEMA 01 | EJERCICIO 01 | DATA SALUD PERU
-   Ejecutar PRIMERO, UNA SOLA VEZ. El bloque inicial elimina esta BD si ya existe.
-   Practica: DECLARE, IF / ELSE IF, EXISTS, CASE, WHILE.
-*/
+--TEMA 01
 USE master;
 GO
 IF DB_ID('BDDataSaludTema01') IS NOT NULL
@@ -60,7 +57,6 @@ SELECT * FROM dbo.Paciente;
 SELECT * FROM dbo.EstablecimientoSalud;
 GO
 
-/* PASO 5: bloque principal. Primer caso: 1,1,CONSULTA,20 -> VALIDO / REGULAR. */
 DECLARE @PacienteId INT = 1;
 DECLARE @EstablecimientoId INT = 1;
 DECLARE @TipoAtencion VARCHAR(30) = 'CONSULTA';
@@ -111,9 +107,7 @@ SELECT @PacienteId AS PacienteId, @EstablecimientoId AS EstablecimientoId,
        @EstadoValidacion AS EstadoValidacion, @Clasificacion AS Clasificacion,
        @Mensaje AS Mensaje;
 GO
-
-/* EVIDENCIA: los seis grupos de casos de la guia (caso 6 incluye 4 limites).
-   Simula el mismo orden de validaciones del bloque anterior, sin insertar datos. */
+   
 DECLARE @Pruebas TABLE(Caso VARCHAR(22), PacienteId INT, EstablecimientoId INT,
                       TipoAtencion VARCHAR(30), DuracionMinutos INT);
 INSERT INTO @Pruebas VALUES
@@ -144,7 +138,6 @@ LEFT JOIN dbo.Paciente AS P ON P.PacienteId = T.PacienteId AND P.Estado = 'A'
 LEFT JOIN dbo.EstablecimientoSalud AS E ON E.EstablecimientoId = T.EstablecimientoId AND E.Estado = 'A';
 GO
 
-/* PASO 6: WHILE. Se esperan cuatro mensajes, de 10 a 40 minutos. */
 DECLARE @Minutos INT = 10;
 WHILE @Minutos <= 40
 BEGIN
