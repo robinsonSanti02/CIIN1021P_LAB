@@ -1,4 +1,4 @@
---TEMA 01
+--TEMA 01/EJERCICIO 01
 USE master;
 GO
 IF DB_ID('BDDataSaludTema01') IS NOT NULL
