@@ -1,4 +1,4 @@
---TEMA 04
+--TEMA 01 / EJERCICIO 4
 USE BDDataSaludTema01;
 GO
 DROP TABLE IF EXISTS dbo.AtencionStaging;
