@@ -1,4 +1,4 @@
-/* TEMA 01 | EJERCICIO 05 | AMPLIACION: ejecutar despues del 04. */
+--TEMA 05
 USE BDDataSaludTema01;
 GO
 CREATE OR ALTER FUNCTION dbo.ufn_RegistrosAptosCarga(@LoteCarga VARCHAR(20))
@@ -30,10 +30,10 @@ RETURN (
       )
 );
 GO
-/* Prueba 1: una sola fila en LOTE-001. */
+    
 SELECT * FROM dbo.ufn_RegistrosAptosCarga('LOTE-001');
 GO
-/* Prueba 2: segundo lote, insercion protegida para no repetirla. */
+
 IF NOT EXISTS (SELECT 1 FROM dbo.AtencionStaging WHERE LoteCarga='LOTE-002')
 BEGIN
     INSERT INTO dbo.AtencionStaging
@@ -48,5 +48,3 @@ END;
 GO
 SELECT * FROM dbo.ufn_RegistrosAptosCarga('LOTE-002') ORDER BY RegistroId;
 GO
-/* Reflexion: los OBSERVADOS requieren revision humana; eliminarlos puede
-   ocultar una atencion real, cargarlos sin validar sesga indicadores. */
