@@ -1,6 +1,4 @@
-/* TEMA 01 | EJERCICIO 04 | Ejecutar luego del 01-03.
-   SOLO UNA VEZ: el INSERT del LOTE-001 contiene seis filas de ejemplo.
-*/
+--TEMA 04
 USE BDDataSaludTema01;
 GO
 DROP TABLE IF EXISTS dbo.AtencionStaging;
@@ -26,7 +24,6 @@ VALUES
 ('LOTE-001','PAC-001','EST-001','CONSULTA',20,'2026-08-19');
 GO
 
-/* Paso 4: un registro duplicado posterior (RegistroId = 6). */
 SELECT A.RegistroId,A.CodigoPaciente,
     CASE WHEN EXISTS (
         SELECT 1 FROM dbo.AtencionStaging AS B
@@ -72,7 +69,6 @@ BEGIN
         INSERT INTO @Evaluacion(RegistroId,Clasificacion,Motivo)
             SELECT RegistroId,NULL,NULL FROM dbo.AtencionStaging WHERE LoteCarga=@LoteCarga;
 
-        /* Regla 1: datos obligatorios informados */
         UPDATE E
         SET E.Clasificacion='INVALIDO',E.Motivo='Campo obligatorio no informado.'
         FROM @Evaluacion AS E
@@ -81,7 +77,6 @@ BEGIN
           AND (A.CodigoPaciente IS NULL OR A.CodigoEstablecimiento IS NULL
                OR A.TipoAtencion IS NULL OR A.FechaAtencion IS NULL);
 
-        /* Regla 2: duración faltante / no positiva */
         UPDATE E
         SET E.Clasificacion='INVALIDO',E.Motivo='Duracion invalida.'
         FROM @Evaluacion AS E
@@ -89,7 +84,6 @@ BEGIN
         WHERE E.Clasificacion IS NULL
           AND (A.DuracionMinutos IS NULL OR A.DuracionMinutos<=0);
 
-        /* Regla 3: tipo ajeno a la lista */
         UPDATE E
         SET E.Clasificacion='INVALIDO',E.Motivo='Tipo de atencion no permitido.'
         FROM @Evaluacion AS E
@@ -97,7 +91,6 @@ BEGIN
         WHERE E.Clasificacion IS NULL
           AND A.TipoAtencion NOT IN ('CONSULTA','CONTROL','VACUNACION');
 
-        /* Regla 4: segunda ocurrencia en adelante */
         UPDATE E
         SET E.Clasificacion='INVALIDO',E.Motivo='Posible registro duplicado.'
         FROM @Evaluacion AS E
@@ -113,14 +106,12 @@ BEGIN
               AND B.FechaAtencion=A.FechaAtencion
           );
 
-        /* Regla 5: potencial valor atipico, no se borra */
         UPDATE E
         SET E.Clasificacion='OBSERVADO',E.Motivo='Duracion mayor a 180 minutos.'
         FROM @Evaluacion AS E
         JOIN dbo.AtencionStaging AS A ON A.RegistroId=E.RegistroId
         WHERE E.Clasificacion IS NULL AND A.DuracionMinutos>180;
 
-        /* Regla 6: todo lo restante cumple los criterios del lote */
         UPDATE @Evaluacion
         SET Clasificacion='VALIDO',Motivo='Cumple las reglas.'
         WHERE Clasificacion IS NULL;
@@ -130,7 +121,6 @@ BEGIN
                @TotalInvalidos=SUM(CASE WHEN Clasificacion='INVALIDO' THEN 1 ELSE 0 END)
         FROM @Evaluacion;
 
-        /* Tabla 1: detalle por registro */
         SELECT A.RegistroId,A.CodigoPaciente,A.CodigoEstablecimiento,A.TipoAtencion,
                A.DuracionMinutos,A.FechaAtencion,E.Clasificacion,E.Motivo
         FROM dbo.AtencionStaging AS A
@@ -138,7 +128,6 @@ BEGIN
         WHERE A.LoteCarga=@LoteCarga
         ORDER BY A.RegistroId;
 
-        /* Tabla 2: motivos y numeros de casos (contiene 'Cumple las reglas'). */
         SELECT E.Motivo AS ProblemaDeCalidad,COUNT(*) AS RegistrosAfectados
         FROM @Evaluacion AS E
         GROUP BY E.Motivo
