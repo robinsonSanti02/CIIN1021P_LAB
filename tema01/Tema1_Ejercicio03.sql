@@ -1,4 +1,4 @@
---TEMA 03
+--TEMA 01 / EJERCICIO 3
 USE BDDataSaludTema01;
 GO
 CREATE OR ALTER PROCEDURE dbo.usp_RegistrarAtencion
