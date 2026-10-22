@@ -1,4 +1,4 @@
---TEMA 02
+--TEMA 01/ EJERCICIO 2
 USE BDDataSaludTema01;
 GO
 CREATE OR ALTER FUNCTION dbo.ufn_ClasificarDuracionAtencion(@Minutos INT)
