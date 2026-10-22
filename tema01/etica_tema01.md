@@ -2,7 +2,6 @@
 
 **Curso:** Base de Datos Avanzadas y Big Data  
 **Tema 01:** Fundamentos avanzados de bases de datos relacionales  
-**Desarrollo:** Individual  
 **Autor:** SANTISTEBAN LLAGUENTO ROBINSON JAIR  
 **Fecha:** 22 de octubre de 2026
 
