@@ -1,4 +1,4 @@
---TEMA 05
+--TEMA 01 / EJERCICIO 5
 USE BDDataSaludTema01;
 GO
 CREATE OR ALTER FUNCTION dbo.ufn_RegistrosAptosCarga(@LoteCarga VARCHAR(20))
