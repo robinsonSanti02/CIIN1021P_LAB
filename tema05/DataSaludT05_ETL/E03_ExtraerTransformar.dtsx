@@ -1,0 +1,2954 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/19/2026 10:11:24 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-VC6FE58"
+  DTS:CreatorName="DESKTOP-VC6FE58\Cesar"
+  DTS:DTSID="{6E87E74A-6CC6-48A9-8325-73DE1BAEC138}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="E03_ExtraerTransformar"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{BE84EAA9-8DF7-401F-8674-D3D8C9712626}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CN_DataSaludT05]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{04EEA501-A522-415C-8155-04300989F00B}"
+      DTS:ObjectName="CN_DataSaludT05">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-VC6FE58\SQLEXPRESS;Initial Catalog=BDDataSaludTema05;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-E03_ExtraerTransformar-{04EEA501-A522-415C-8155-04300989F00B}DESKTOP-VC6FE58\SQLEXPRESS.BDDataSaludTema05;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_E03_ExtraerAStaging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{29C07164-20CD-4E97-94E1-BC0B0C64ED35}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_E03_ExtraerAStaging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_E03_ExtraerAStaging\DST_Staging"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DST_Staging"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[Atencion]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CN_DataSaludT05]"
+                  connectionManagerRefId="Package.ConnectionManagers[CN_DataSaludT05]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].Columns[Origen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Origen"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[Origen]"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[Origen]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].Columns[CodigoAtencion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoAtencion"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoAtencion]"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoAtencion]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].Columns[FechaAtencion]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaAtencion"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaAtencion]"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[FechaAtencion]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].Columns[CodigoEstablecimiento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoEstablecimiento"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoEstablecimiento]"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoEstablecimiento]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].Columns[TipoAtencion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="TipoAtencion"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoAtencion]"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[TipoAtencion]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].Columns[DuracionMinutos]"
+                      cachedDataType="i4"
+                      cachedName="DuracionMinutos"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[DuracionMinutos]"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[DuracionMinutos]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].Columns[EstadoRegistro]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="EstadoRegistro"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[EstadoRegistro]"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[EstadoRegistro]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].Columns[CodigoPaciente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoPaciente"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoPaciente]"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoPaciente]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Origen" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaAtencion]"
+                      dataType="dbDate"
+                      name="FechaAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoEstablecimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoEstablecimiento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TipoAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[DuracionMinutos]"
+                      dataType="i4"
+                      name="DuracionMinutos" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[EstadoRegistro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="EstadoRegistro" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoPaciente" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="SRC_Campania"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    CAST('CAMPANIA' AS VARCHAR(10)) AS Origen,
+    CodigoAtencion,
+    FechaAtencion,
+    CodigoEstablecimiento,
+    TipoAtencion,
+    DuracionMinutos,
+    EstadoRegistro,
+    CodigoPaciente
+FROM src.AtencionCampania;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CN_DataSaludT05]"
+                  connectionManagerRefId="Package.ConnectionManagers[CN_DataSaludT05]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[Origen]"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[Origen]"
+                      name="Origen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoAtencion]"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[CodigoAtencion]"
+                      name="CodigoAtencion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[FechaAtencion]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaAtencion]"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[FechaAtencion]"
+                      name="FechaAtencion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[CodigoEstablecimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoEstablecimiento]"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[CodigoEstablecimiento]"
+                      name="CodigoEstablecimiento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[TipoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoAtencion]"
+                      length="20"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[TipoAtencion]"
+                      name="TipoAtencion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[DuracionMinutos]"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]"
+                      name="DuracionMinutos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[EstadoRegistro]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[EstadoRegistro]"
+                      length="15"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[EstadoRegistro]"
+                      name="EstadoRegistro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoPaciente]"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[CodigoPaciente]"
+                      name="CodigoPaciente"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Origen" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaAtencion]"
+                      dataType="dbDate"
+                      name="FechaAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoEstablecimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoEstablecimiento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TipoAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[DuracionMinutos]"
+                      dataType="i4"
+                      name="DuracionMinutos" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[EstadoRegistro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="EstadoRegistro" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoPaciente" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[Origen]"
+                      name="Origen" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[CodigoAtencion]"
+                      name="CodigoAtencion" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[FechaAtencion]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[FechaAtencion]"
+                      name="FechaAtencion" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[CodigoEstablecimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[CodigoEstablecimiento]"
+                      name="CodigoEstablecimiento" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[TipoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[TipoAtencion]"
+                      name="TipoAtencion" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[DuracionMinutos]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[DuracionMinutos]"
+                      name="DuracionMinutos" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[EstadoRegistro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[EstadoRegistro]"
+                      name="EstadoRegistro" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[CodigoPaciente]"
+                      name="CodigoPaciente" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="SRC_HIS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    CAST('HIS' AS VARCHAR(10)) AS Origen,
+    CodigoAtencion,
+    FechaAtencion,
+    CodigoEstablecimiento,
+    TipoAtencion,
+    DuracionMinutos,
+    EstadoRegistro,
+    CodigoPaciente
+FROM src.AtencionHIS;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CN_DataSaludT05]"
+                  connectionManagerRefId="Package.ConnectionManagers[CN_DataSaludT05]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[Origen]"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[Origen]"
+                      name="Origen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoAtencion]"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[CodigoAtencion]"
+                      name="CodigoAtencion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[FechaAtencion]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaAtencion]"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[FechaAtencion]"
+                      name="FechaAtencion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[CodigoEstablecimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoEstablecimiento]"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[CodigoEstablecimiento]"
+                      name="CodigoEstablecimiento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[TipoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoAtencion]"
+                      length="20"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[TipoAtencion]"
+                      name="TipoAtencion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[DuracionMinutos]"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]"
+                      name="DuracionMinutos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[EstadoRegistro]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[EstadoRegistro]"
+                      length="15"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[EstadoRegistro]"
+                      name="EstadoRegistro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoPaciente]"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[CodigoPaciente]"
+                      name="CodigoPaciente"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Origen" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaAtencion]"
+                      dataType="dbDate"
+                      name="FechaAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoEstablecimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoEstablecimiento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TipoAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[DuracionMinutos]"
+                      dataType="i4"
+                      name="DuracionMinutos" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[EstadoRegistro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="EstadoRegistro" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoPaciente" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[Origen]"
+                      name="Origen" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[CodigoAtencion]"
+                      name="CodigoAtencion" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[FechaAtencion]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[FechaAtencion]"
+                      name="FechaAtencion" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[CodigoEstablecimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[CodigoEstablecimiento]"
+                      name="CodigoEstablecimiento" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[TipoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[TipoAtencion]"
+                      name="TipoAtencion" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[DuracionMinutos]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[DuracionMinutos]"
+                      name="DuracionMinutos" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[EstadoRegistro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[EstadoRegistro]"
+                      name="EstadoRegistro" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[CodigoPaciente]"
+                      name="CodigoPaciente" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unión de todo;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina las filas de varios flujos de datos sin ordenarlos. Por ejemplo, devuelve filas a un flujo de datos después de corregir los errores. Si el orden es importante, se recomienda usar la transformación Mezclar."
+              name="UNION_Entradas"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 1]"
+                  name="Entrada de Unión de todo 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 1].Columns[Origen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Origen"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[Origen]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[Origen]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 1].Columns[CodigoAtencion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoAtencion"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[CodigoAtencion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoAtencion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 1].Columns[FechaAtencion]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaAtencion"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[FechaAtencion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[FechaAtencion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 1].Columns[CodigoEstablecimiento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoEstablecimiento"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[CodigoEstablecimiento]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoEstablecimiento]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 1].Columns[TipoAtencion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="TipoAtencion"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[TipoAtencion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[TipoAtencion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 1].Columns[DuracionMinutos]"
+                      cachedDataType="i4"
+                      cachedName="DuracionMinutos"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[DuracionMinutos]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 1].Columns[EstadoRegistro]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="EstadoRegistro"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[EstadoRegistro]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[EstadoRegistro]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 1].Columns[CodigoPaciente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoPaciente"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB].Columns[CodigoPaciente]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoPaciente]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 2]"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 2].Columns[Origen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Origen"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[Origen]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[Origen]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 2].Columns[CodigoAtencion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoAtencion"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[CodigoAtencion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoAtencion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 2].Columns[FechaAtencion]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaAtencion"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[FechaAtencion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[FechaAtencion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 2].Columns[CodigoEstablecimiento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoEstablecimiento"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[CodigoEstablecimiento]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoEstablecimiento]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 2].Columns[TipoAtencion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="TipoAtencion"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[TipoAtencion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[TipoAtencion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 2].Columns[DuracionMinutos]"
+                      cachedDataType="i4"
+                      cachedName="DuracionMinutos"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[DuracionMinutos]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 2].Columns[EstadoRegistro]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="EstadoRegistro"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[EstadoRegistro]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[EstadoRegistro]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 2].Columns[CodigoPaciente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoPaciente"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB].Columns[CodigoPaciente]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoPaciente]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1]"
+                  name="Salida de Unión de todo 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[Origen]"
+                      name="Origen" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoAtencion]"
+                      name="CodigoAtencion" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[FechaAtencion]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[FechaAtencion]"
+                      name="FechaAtencion" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoEstablecimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoEstablecimiento]"
+                      name="CodigoEstablecimiento" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[TipoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[TipoAtencion]"
+                      name="TipoAtencion" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[DuracionMinutos]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[DuracionMinutos]"
+                      name="DuracionMinutos" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[EstadoRegistro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[EstadoRegistro]"
+                      name="EstadoRegistro" />
+                    <outputColumn
+                      refId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1].Columns[CodigoPaciente]"
+                      name="CodigoPaciente" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_E03_ExtraerAStaging.Paths[Salida de origen de OLE DB]"
+              endId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 1]"
+              name="Salida de origen de OLE DB"
+              startId="Package\DFT_E03_ExtraerAStaging\SRC_HIS.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\DFT_E03_ExtraerAStaging.Paths[Salida de origen de OLE DB1]"
+              endId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Inputs[Entrada de Unión de todo 2]"
+              name="Salida de origen de OLE DB"
+              startId="Package\DFT_E03_ExtraerAStaging\SRC_Campania.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\DFT_E03_ExtraerAStaging.Paths[Salida de Unión de todo 1]"
+              endId="Package\DFT_E03_ExtraerAStaging\DST_Staging.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de Unión de todo 1"
+              startId="Package\DFT_E03_ExtraerAStaging\UNION_Entradas.Outputs[Salida de Unión de todo 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT_E03_TransformarClasificar"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{23EB685B-165E-48D9-A8D2-F8D3381A8FA8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_E03_TransformarClasificar"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_E03_TransformarClasificar\DER_Homologar"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="DER_Homologar"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Inputs[Entrada de columna derivada].Columns[TipoLimpio]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="TipoLimpio"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[TipoLimpio]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Inputs[Entrada de columna derivada].Columns[EstadoLimpio]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="EstadoLimpio"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[EstadoLimpio]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de columna derivada].Columns[TipoNormalizado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de columna derivada].Columns[TipoNormalizado]"
+                      name="TipoNormalizado"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[TipoLimpio]} == "VACUNA" ? "VACUNACION" : #{Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[TipoLimpio]} == "CTRL" ? "CONTROL" : #{Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[TipoLimpio]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TipoLimpio == "VACUNA" ? "VACUNACION" : TipoLimpio == "CTRL" ? "CONTROL" : TipoLimpio</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de columna derivada].Columns[EstadoNormalizado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de columna derivada].Columns[EstadoNormalizado]"
+                      name="EstadoNormalizado"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">#{Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[EstadoLimpio]} == "V" ? "VALIDO" : #{Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[EstadoLimpio]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">EstadoLimpio == "V" ? "VALIDO" : EstadoLimpio</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="DER_LimpiarTextos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Inputs[Entrada de columna derivada].Columns[CodigoEstablecimiento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoEstablecimiento"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoEstablecimiento]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Inputs[Entrada de columna derivada].Columns[TipoAtencion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="TipoAtencion"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[TipoAtencion]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Inputs[Entrada de columna derivada].Columns[EstadoRegistro]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="EstadoRegistro"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[EstadoRegistro]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[EstLimpio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[EstLimpio]"
+                      name="EstLimpio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[ISNULL](#{Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoEstablecimiento]}) ? "" : [UPPER]([TRIM](#{Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoEstablecimiento]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(CodigoEstablecimiento) ? "" : UPPER(TRIM(CodigoEstablecimiento))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[TipoLimpio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[TipoLimpio]"
+                      name="TipoLimpio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[ISNULL](#{Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[TipoAtencion]}) ? "" : [UPPER]([TRIM](#{Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[TipoAtencion]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(TipoAtencion) ? "" : UPPER(TRIM(TipoAtencion))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[EstadoLimpio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[EstadoLimpio]"
+                      name="EstadoLimpio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[ISNULL](#{Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[EstadoRegistro]}) ? "" : [UPPER]([TRIM](#{Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[EstadoRegistro]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(EstadoRegistro) ? "" : UPPER(TRIM(EstadoRegistro))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_E03_TransformarClasificar\DER_Validar"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="DER_Validar"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_E03_TransformarClasificar\DER_Validar.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Validar.Inputs[Entrada de columna derivada].Columns[FechaAtencion]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaAtencion"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[FechaAtencion]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Validar.Inputs[Entrada de columna derivada].Columns[DuracionMinutos]"
+                      cachedDataType="i4"
+                      cachedName="DuracionMinutos"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Validar.Inputs[Entrada de columna derivada].Columns[EstLimpio]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="EstLimpio"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[EstLimpio]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Validar.Inputs[Entrada de columna derivada].Columns[TipoNormalizado]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="TipoNormalizado"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de columna derivada].Columns[TipoNormalizado]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Validar.Inputs[Entrada de columna derivada].Columns[EstadoNormalizado]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="EstadoNormalizado"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de columna derivada].Columns[EstadoNormalizado]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\DER_Validar.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\DFT_E03_TransformarClasificar\DER_Validar.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Validar.Outputs[Salida de columna derivada].Columns[MotivoRechazo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Validar.Outputs[Salida de columna derivada].Columns[MotivoRechazo]"
+                      name="MotivoRechazo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">(DT_WSTR,30)([ISNULL](#{Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[FechaAtencion]}) ? "FECHA_AUSENTE" : #{Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[EstLimpio]} == "" ? "ESTABLECIMIENTO_AUSENTE" : #{Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de columna derivada].Columns[TipoNormalizado]} == "" ? "TIPO_AUSENTE" : [ISNULL](#{Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]}) ? "DURACION_AUSENTE" : #{Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]} &lt;= 0 ? "DURACION_NO_POSITIVA" : #{Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de columna derivada].Columns[EstadoNormalizado]} != "VALIDO" ? "ESTADO_NO_VALIDO" : "")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,30)(ISNULL(FechaAtencion) ? "FECHA_AUSENTE" : EstLimpio == "" ? "ESTABLECIMIENTO_AUSENTE" : TipoNormalizado == "" ? "TIPO_AUSENTE" : ISNULL(DuracionMinutos) ? "DURACION_AUSENTE" : DuracionMinutos &lt;= 0 ? "DURACION_NO_POSITIVA" : EstadoNormalizado != "VALIDO" ? "ESTADO_NO_VALIDO" : "")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\DER_Validar.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\DFT_E03_TransformarClasificar\DER_Validar.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Validar.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Validar.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DER_Validar.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Validar.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DST_Rechazadas"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[AtencionRechazada]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CN_DataSaludT05]"
+                  connectionManagerRefId="Package.ConnectionManagers[CN_DataSaludT05]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].Columns[Origen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Origen"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Origen]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[Origen]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].Columns[CodigoAtencion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoAtencion"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoAtencion]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoAtencion]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].Columns[FechaAtencion]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaAtencion"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaAtencion]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[FechaAtencion]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].Columns[CodigoEstablecimiento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoEstablecimiento"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoEstablecimiento]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoEstablecimiento]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].Columns[TipoAtencion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="TipoAtencion"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoAtencion]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[TipoAtencion]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].Columns[DuracionMinutos]"
+                      cachedDataType="i4"
+                      cachedName="DuracionMinutos"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[DuracionMinutos]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].Columns[EstadoRegistro]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="EstadoRegistro"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[EstadoRegistro]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[EstadoRegistro]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].Columns[CodigoPaciente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoPaciente"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoPaciente]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoPaciente]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].Columns[MotivoRechazo]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="MotivoRechazo"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[MotivoRechazo]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Validar.Outputs[Salida de columna derivada].Columns[MotivoRechazo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Origen" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaAtencion]"
+                      dataType="dbDate"
+                      name="FechaAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoEstablecimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoEstablecimiento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TipoAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[DuracionMinutos]"
+                      dataType="i4"
+                      name="DuracionMinutos" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[EstadoRegistro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="EstadoRegistro" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoPaciente" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB].ExternalColumns[MotivoRechazo]"
+                      dataType="wstr"
+                      length="30"
+                      name="MotivoRechazo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_E03_TransformarClasificar\DST_Validas"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DST_Validas"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[AtencionValida]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CN_DataSaludT05]"
+                  connectionManagerRefId="Package.ConnectionManagers[CN_DataSaludT05]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].Columns[Origen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Origen"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Origen]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[Origen]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].Columns[CodigoAtencion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoAtencion"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoAtencion]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoAtencion]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].Columns[FechaAtencion]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaAtencion"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaAtencion]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[FechaAtencion]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].Columns[DuracionMinutos]"
+                      cachedDataType="i4"
+                      cachedName="DuracionMinutos"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[DuracionMinutos]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].Columns[CodigoPaciente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CodigoPaciente"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoPaciente]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoPaciente]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].Columns[EstLimpio]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="EstLimpio"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoEstablecimiento]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada].Columns[EstLimpio]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].Columns[TipoNormalizado]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="TipoNormalizado"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoAtencion]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de columna derivada].Columns[TipoNormalizado]" />
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].Columns[EstadoNormalizado]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="EstadoNormalizado"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[EstadoRegistro]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de columna derivada].Columns[EstadoNormalizado]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Origen" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaAtencion]"
+                      dataType="dbDate"
+                      name="FechaAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoEstablecimiento]"
+                      dataType="wstr"
+                      length="10"
+                      name="CodigoEstablecimiento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoAtencion]"
+                      dataType="wstr"
+                      length="20"
+                      name="TipoAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[DuracionMinutos]"
+                      dataType="i4"
+                      name="DuracionMinutos" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[EstadoRegistro]"
+                      dataType="wstr"
+                      length="15"
+                      name="EstadoRegistro" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoPaciente" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DST_Validas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\DST_Validas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DST_Validas.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="SPL_Clasificar"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Inputs[Entrada de división condicional].Columns[MotivoRechazo]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="MotivoRechazo"
+                      lineageId="Package\DFT_E03_TransformarClasificar\DER_Validar.Outputs[Salida de columna derivada].Columns[MotivoRechazo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Outputs[Validas]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Validas"
+                  synchronousInputId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\DFT_E03_TransformarClasificar\DER_Validar.Outputs[Salida de columna derivada].Columns[MotivoRechazo]} == ""</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">MotivoRechazo == ""</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Outputs[Rechazadas]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Rechazadas"
+                  synchronousInputId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_E03_TransformarClasificar\SRC_Staging"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="SRC_Staging"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    Origen,
+    CodigoAtencion,
+    FechaAtencion,
+    CodigoEstablecimiento,
+    TipoAtencion,
+    DuracionMinutos,
+    EstadoRegistro,
+    CodigoPaciente
+FROM stg.Atencion;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CN_DataSaludT05]"
+                  connectionManagerRefId="Package.ConnectionManagers[CN_DataSaludT05]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[Origen]"
+                      length="10"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[Origen]"
+                      name="Origen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoAtencion]"
+                      length="10"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoAtencion]"
+                      name="CodigoAtencion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[FechaAtencion]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaAtencion]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[FechaAtencion]"
+                      name="FechaAtencion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoEstablecimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoEstablecimiento]"
+                      length="10"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoEstablecimiento]"
+                      name="CodigoEstablecimiento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[TipoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoAtencion]"
+                      length="20"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[TipoAtencion]"
+                      name="TipoAtencion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[DuracionMinutos]"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[DuracionMinutos]"
+                      name="DuracionMinutos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[EstadoRegistro]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[EstadoRegistro]"
+                      length="15"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[EstadoRegistro]"
+                      name="EstadoRegistro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoPaciente]"
+                      length="10"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].Columns[CodigoPaciente]"
+                      name="CodigoPaciente"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Origen" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaAtencion]"
+                      dataType="dbDate"
+                      name="FechaAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoEstablecimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoEstablecimiento" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TipoAtencion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[DuracionMinutos]"
+                      dataType="i4"
+                      name="DuracionMinutos" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[EstadoRegistro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="EstadoRegistro" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB].ExternalColumns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoPaciente" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[Origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[Origen]"
+                      name="Origen" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[CodigoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[CodigoAtencion]"
+                      name="CodigoAtencion" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[FechaAtencion]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[FechaAtencion]"
+                      name="FechaAtencion" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[CodigoEstablecimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[CodigoEstablecimiento]"
+                      name="CodigoEstablecimiento" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[TipoAtencion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[TipoAtencion]"
+                      name="TipoAtencion" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[DuracionMinutos]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[DuracionMinutos]"
+                      name="DuracionMinutos" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[EstadoRegistro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[EstadoRegistro]"
+                      name="EstadoRegistro" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[CodigoPaciente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[CodigoPaciente]"
+                      name="CodigoPaciente" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_E03_TransformarClasificar.Paths[Rechazadas]"
+              endId="Package\DFT_E03_TransformarClasificar\DST_Rechazadas.Inputs[Entrada de destino de OLE DB]"
+              name="Rechazadas"
+              startId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Outputs[Rechazadas]" />
+            <path
+              refId="Package\DFT_E03_TransformarClasificar.Paths[Salida de columna derivada]"
+              endId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Inputs[Entrada de columna derivada]"
+              name="Salida de columna derivada"
+              startId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\DFT_E03_TransformarClasificar.Paths[Salida de columna derivada1]"
+              endId="Package\DFT_E03_TransformarClasificar\DER_Validar.Inputs[Entrada de columna derivada]"
+              name="Salida de columna derivada"
+              startId="Package\DFT_E03_TransformarClasificar\DER_Homologar.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\DFT_E03_TransformarClasificar.Paths[Salida de columna derivada2]"
+              endId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Inputs[Entrada de división condicional]"
+              name="Salida de columna derivada"
+              startId="Package\DFT_E03_TransformarClasificar\DER_Validar.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\DFT_E03_TransformarClasificar.Paths[Salida de origen de OLE DB]"
+              endId="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\DFT_E03_TransformarClasificar\SRC_Staging.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\DFT_E03_TransformarClasificar.Paths[Validas]"
+              endId="Package\DFT_E03_TransformarClasificar\DST_Validas.Inputs[Entrada de destino de OLE DB]"
+              name="Validas"
+              startId="Package\DFT_E03_TransformarClasificar\SPL_Clasificar.Outputs[Validas]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_CargarDW"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{DF5E253A-1E94-40F1-B15B-57C2CD82AFA4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_CargarDW"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{04EEA501-A522-415C-8155-04300989F00B}"
+          SQLTask:SqlStatementSource="DECLARE @Nuevas INT;&#xA;EXEC etl.usp_CargarAtencionesDW @FilasInsertadas = @Nuevas OUTPUT;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_PrepararE03"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{28866EFA-DAD6-4968-AB00-AC1857911431}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_PrepararE03"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{04EEA501-A522-415C-8155-04300989F00B}"
+          SQLTask:SqlStatementSource="&#xA;DELETE FROM stg.AtencionValida;&#xA;DELETE FROM stg.AtencionRechazada;&#xA;DELETE FROM stg.Atencion;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{190DA802-0D66-4C94-9FCD-AB255ADDBC93}"
+      DTS:From="Package\SQL_PrepararE03"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\DFT_E03_ExtraerAStaging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4206C0CA-31DD-4459-BFA1-226DF4F2F207}"
+      DTS:From="Package\DFT_E03_ExtraerAStaging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\DFT_E03_TransformarClasificar" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{2925205C-C8B8-47B2-B09B-A0F8298E3A0F}"
+      DTS:From="Package\DFT_E03_TransformarClasificar"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\SQL_CargarDW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="212,42"
+          Id="Package\DFT_E03_ExtraerAStaging"
+          TopLeft="237.5,117.5" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\DFT_E03_TransformarClasificar"
+          TopLeft="263,192" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\SQL_PrepararE03"
+          TopLeft="267.5,7.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="352,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.5,68"
+              Start="0,0"
+              End="-8.5,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30"
+                    Point2="0,34"
+                    Point3="-4,34" />
+                  <mssgle:LineSegment
+                    End="-4.5,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,34"
+                    Point2="-8.5,34"
+                    Point3="-8.5,38" />
+                  <mssgle:LineSegment
+                    End="-8.5,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="343.5,159.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38,32.5"
+              Start="0,0"
+              End="38,25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.25"
+                    Point2="0,16.25"
+                    Point3="4,16.25" />
+                  <mssgle:LineSegment
+                    End="34,16.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34,16.25"
+                    Point2="38,16.25"
+                    Point3="38,20.25" />
+                  <mssgle:LineSegment
+                    End="38,25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\SQL_CargarDW"
+          TopLeft="392,285" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="381.5,234">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90,51"
+              Start="0,0"
+              End="90,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="86,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86,25.5"
+                    Point2="90,25.5"
+                    Point3="90,29.5" />
+                  <mssgle:LineSegment
+                    End="90,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_E03_ExtraerAStaging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="127,42"
+          Id="Package\DFT_E03_ExtraerAStaging\SRC_HIS"
+          TopLeft="113,135" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT_E03_ExtraerAStaging\SRC_Campania"
+          TopLeft="421,137" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DFT_E03_ExtraerAStaging\UNION_Entradas"
+          TopLeft="269,208" />
+        <EdgeLayout
+          Id="Package\DFT_E03_ExtraerAStaging.Paths[Salida de origen de OLE DB]"
+          TopLeft="176.5,177">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="175,31"
+              Start="0,0"
+              End="175,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
+                  <mssgle:LineSegment
+                    End="171,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="171,15.5"
+                    Point2="175,15.5"
+                    Point3="175,19.5" />
+                  <mssgle:LineSegment
+                    End="175,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_E03_ExtraerAStaging.Paths[Salida de origen de OLE DB1]"
+          TopLeft="500,179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-122.333333333333,29"
+              Start="0,0"
+              End="-122.333333333333,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.2328931572629" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.2328931572629"
+                    Point2="0,17.2328931572629"
+                    Point3="-4,17.2328931572629" />
+                  <mssgle:LineSegment
+                    End="-118.333333333333,17.2328931572629" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-118.333333333333,17.2328931572629"
+                    Point2="-122.333333333333,17.2328931572629"
+                    Point3="-122.333333333333,21.2328931572629" />
+                  <mssgle:LineSegment
+                    End="-122.333333333333,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="144,42"
+          Id="Package\DFT_E03_ExtraerAStaging\DST_Staging"
+          TopLeft="274,290" />
+        <EdgeLayout
+          Id="Package\DFT_E03_ExtraerAStaging.Paths[Salida de Unión de todo 1]"
+          TopLeft="348.75,250">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_E03_ExtraerAStaging\SRC_HIS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_E03_ExtraerAStaging\DST_Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_E03_ExtraerAStaging\SRC_Campania">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT_E03_TransformarClasificar">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="146,42"
+          Id="Package\DFT_E03_TransformarClasificar\SRC_Staging"
+          TopLeft="226,73" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos"
+          TopLeft="298,173" />
+        <EdgeLayout
+          Id="Package\DFT_E03_TransformarClasificar.Paths[Salida de origen de OLE DB]"
+          TopLeft="299,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="87.5,58"
+              Start="0,0"
+              End="87.5,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="4,29" />
+                  <mssgle:LineSegment
+                    End="83.5,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.5,29"
+                    Point2="87.5,29"
+                    Point3="87.5,33" />
+                  <mssgle:LineSegment
+                    End="87.5,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162,42"
+          Id="Package\DFT_E03_TransformarClasificar\DER_Homologar"
+          TopLeft="383,267" />
+        <EdgeLayout
+          Id="Package\DFT_E03_TransformarClasificar.Paths[Salida de columna derivada]"
+          TopLeft="386.5,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77.5,52"
+              Start="0,0"
+              End="77.5,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="4,26" />
+                  <mssgle:LineSegment
+                    End="73.5,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="73.5,26"
+                    Point2="77.5,26"
+                    Point3="77.5,30" />
+                  <mssgle:LineSegment
+                    End="77.5,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="143,42"
+          Id="Package\DFT_E03_TransformarClasificar\DER_Validar"
+          TopLeft="436.5,341.5" />
+        <EdgeLayout
+          Id="Package\DFT_E03_TransformarClasificar.Paths[Salida de columna derivada1]"
+          TopLeft="464,309">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44,32.5"
+              Start="0,0"
+              End="44,25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.25"
+                    Point2="0,16.25"
+                    Point3="4,16.25" />
+                  <mssgle:LineSegment
+                    End="40,16.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40,16.25"
+                    Point2="44,16.25"
+                    Point3="44,20.25" />
+                  <mssgle:LineSegment
+                    End="44,25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151,42"
+          Id="Package\DFT_E03_TransformarClasificar\SPL_Clasificar"
+          TopLeft="453,413" />
+        <EdgeLayout
+          Id="Package\DFT_E03_TransformarClasificar.Paths[Salida de columna derivada2]"
+          TopLeft="508,383.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.5,29.5"
+              Start="0,0"
+              End="20.5,22">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.75"
+                    Point2="0,14.75"
+                    Point3="4,14.75" />
+                  <mssgle:LineSegment
+                    End="16.5,14.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.5,14.75"
+                    Point2="20.5,14.75"
+                    Point3="20.5,18.75" />
+                  <mssgle:LineSegment
+                    End="20.5,22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="143,42"
+          Id="Package\DFT_E03_TransformarClasificar\DST_Validas"
+          TopLeft="347,466" />
+        <EdgeLayout
+          Id="Package\DFT_E03_TransformarClasificar.Paths[Validas]"
+          TopLeft="453,434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.5,32"
+              Start="0,0"
+              End="-34.5,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-30.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5,0"
+                    Point2="-34.5,0"
+                    Point3="-34.5,4" />
+                  <mssgle:LineSegment
+                    End="-34.5,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-50.94576171875,-15.7490234375,32.8915234375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\DFT_E03_TransformarClasificar\DST_Rechazadas"
+          TopLeft="568,463" />
+        <EdgeLayout
+          Id="Package\DFT_E03_TransformarClasificar.Paths[Rechazadas]"
+          TopLeft="604,434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48,29"
+              Start="0,0"
+              End="48,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="44,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="44,0"
+                    Point2="48,0"
+                    Point3="48,4" />
+                  <mssgle:LineSegment
+                    End="48,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="21.542421875,-15.7490234375,52.91515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_E03_TransformarClasificar\DST_Validas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_E03_TransformarClasificar\DST_Rechazadas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_E03_TransformarClasificar\SRC_Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
