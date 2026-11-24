@@ -177,4 +177,10 @@ fines exclusivamente académicos.
 
 Repositorio: [robinsonSanti02/CIIN1021P_LAB](https://github.com/robinsonSanti02/CIIN1021P_LAB).
 
-La carpeta `tema01/` concentra los scripts y documentos del laboratorio. El archivo `.gitignore` excluye respaldos de SQL Server, archivos de la base, CSV, archivos de entorno y archivos cuyo nombre empieza por `secretos`. Los commits deben describir el objetivo de cada cambio.
+Las carpetas `tema01/` a `tema05/` contienen los scripts,
+informes, evidencias y documentación de cada laboratorio.
+
+El archivo `.gitignore` excluye archivos temporales,
+respaldos, archivos de bases de datos y credenciales.
+
+Los commits deben describir el objetivo de cada cambio.
