@@ -1,4 +1,4 @@
-# CIIN1021P_LAB — Laboratorios de los Temas 01 y 02
+# CIIN1021P_LAB — Laboratorios de los Temas 01 al 05
 
 **Universidad:** Universidad Privada del Norte  
 **Carrera:** Ingeniería de Sistemas Computacionales  
@@ -9,23 +9,33 @@
 
 ## Propósito y alcance
 
-Aplicar programación T-SQL para validar atenciones de salud, centralizar reglas de negocio, controlar errores y evaluar la calidad de los datos. Los registros del laboratorio son sintéticos.
+Desarrollar soluciones de bases de datos avanzadas mediante
+programación T-SQL, automatización, seguridad, optimización,
+bases de datos NoSQL, almacenamiento dimensional y procesos ETL.
 
-El repositorio reúne los ejercicios 00 al 04 y la ampliación 05–06. El análisis ético, las respuestas de cierre y el informe acompañan a los scripts. El repositorio de laboratorios se mantiene separado del repositorio del desafío DataSalud.
+Los laboratorios se desarrollan sobre el caso académico
+DataSalud Perú, utilizando datos sintéticos.
 
-## Archivos del Tema 01
+## Organización del repositorio
 
-| Archivo | Contenido |
-|---|---|
-| [etica_tema01.md](tema01/etica_tema01.md) | Ejercicio 00: dos situaciones reales, fuentes y un dilema ético. |
-| [Tema1_Ejercicio01.sql](tema01/Tema1_Ejercicio01.sql) | Base de práctica, tablas, datos, validaciones con IF/CASE y ciclo WHILE. |
-| [Tema1_Ejercicio02.sql](tema01/Tema1_Ejercicio02.sql) | Función escalar de clasificación y consultas de prueba. |
-| [Tema1_Ejercicio03.sql](tema01/Tema1_Ejercicio03.sql) | Procedimiento de registro con OUTPUT, TRY...CATCH y THROW. |
-| [Tema1_Ejercicio04.sql](tema01/Tema1_Ejercicio04.sql) | Staging, evaluación de calidad, detalle y conteo de problemas. |
-| [Tema1_Ejercicio05.sql](tema01/Tema1_Ejercicio05.sql) | Función tabular de registros aptos y pruebas de dos lotes. |
-| [Tema1_Ejercicio06.sql](tema01/Tema1_Ejercicio06.sql) | Inactivación de pacientes y reporte por rango de fechas. |
-| [Respuestas_Cierre.md](tema01/Respuestas_Cierre.md) | Seis respuestas de cierre y reflexiones sobre reutilización y revisión de valores atípicos. |
-| [Informe_Tema01_Santisteban.pdf](tema01/Informe_Tema01_Santisteban.pdf) | Evidencias de ejecución, análisis de resultados, conclusiones y referencias. |
+| Tema | Contenido | Documentación |
+|---|---|---|
+| 01 | Programación avanzada en T-SQL | [Tema 01](tema01/) |
+| 02 | Automatización y control transaccional | [Tema 02](tema02/README.md) |
+| 03 | Seguridad, optimización y respaldo | [Tema 03](tema03/README_Tema03.md) |
+| 04 | Nuevos paradigmas en el manejo de datos | [Tema 04](tema04/README_Tema04.md) |
+| 05 | Almacén de datos y procesos ETL | [Tema 05](tema05/README_Tema05.md) |
+
+## Herramientas utilizadas
+
+- Microsoft SQL Server.
+- SQL Server Management Studio (SSMS).
+- MongoDB Community Server.
+- MongoDB Compass.
+- MongoDB Shell (mongosh).
+- Visual Studio 2022.
+- SQL Server Integration Services (SSIS).
+- Git y GitHub.
 
 ## Entorno y orden de ejecución del Tema 01
 
@@ -70,6 +80,98 @@ La carpeta [tema02/](tema02/README.md) contiene los cinco ejercicios de automati
 - [Instrucciones y resultados esperados](tema02/README.md).
 
 El Tema 02 continúa sobre `BDDataSaludTema01`; no debe reiniciarse la base entre ejercicios. El reto avanzado y la medición de tiempos son opcionales. Los scripts del Tema 02 conservan las explicaciones fuera del código.
+
+
+## Tema 03 — Seguridad, optimización y respaldo
+
+- Gestión de transacciones.
+- Usuarios, roles y permisos.
+- Protección de datos sensibles.
+- Auditoría de accesos.
+- Índices y planes de ejecución.
+- Respaldo y restauración de bases de datos.
+
+[Ver laboratorio del Tema 03](tema03/README_Tema03.md)
+
+## Tema 04 — Nuevos paradigmas en el manejo de datos
+
+- Comparación entre SQL Server y MongoDB.
+- Consultas optimizadas mediante índices.
+- Operaciones CRUD sobre documentos.
+- Intercambio de información mediante JSON.
+- Arquitectura híbrida relacional y documental.
+
+### Resultados obtenidos
+
+| Indicador | Resultado |
+|---|---:|
+| Filas consultadas | 822 |
+| Lecturas lógicas iniciales | 339 |
+| Lecturas lógicas optimizadas | 5 |
+| Reducción de lecturas | 98,53 % |
+| Documentos importados | 3 |
+
+[Documentación del Tema 04](tema04/README_Tema04.md)
+
+[Informe del Tema 04](tema04/Informe_Tema04_Santisteban.pdf)
+
+## Tema 05 — Almacén de datos y procesos ETL
+
+Implementación de un Data Warehouse para la DIRESA
+La Libertad, integrando las fuentes NUCLEO, HIS y CAMPANIA.
+
+### Ejercicios desarrollados
+
+| Ejercicio | Contenido |
+|---|---|
+| 01 | Del registro al indicador |
+| 02 | Modelo dimensional de atenciones |
+| 03 | Extracción y transformación mediante SSIS |
+| 04 | Carga incremental y control transaccional |
+| 05 | Etapa de vida y protección de datos |
+| 06 | Vacunación con dimensiones compartidas |
+
+### Resultados obtenidos
+
+| Indicador | Resultado |
+|---|---:|
+| Atenciones válidas | 12 |
+| Minutos acumulados | 190 |
+| Registros de vacunación de origen | 8 |
+| Dosis únicas almacenadas | 7 |
+| Inserciones en la primera carga | 7 |
+| Inserciones en la segunda carga | 0 |
+| Duplicados en el Data Warehouse | 0 |
+
+### Cobertura de vacunación
+
+| Provincia | Cobertura |
+|---|---:|
+| Chepén | 50 % |
+| Sánchez Carrión | 25 % |
+| Trujillo | 50 % |
+
+### Archivos y documentación
+
+- [Documentación del Tema 05](tema05/README_Tema05.md)
+- [Informe final](tema05/Informe_Tema05_Santisteban.pdf)
+- [Proyecto SSIS](tema05/DataSaludT05_ETL/)
+- [Evidencias de ejecución](tema05/evidencias/)
+- [Verificación SQL](tema05/Tema5_Verificacion_SQL.sql)
+
+## Continuidad académica
+
+Los cinco laboratorios representan una evolución
+progresiva del caso DataSalud Perú:
+
+1. Programación y validación de datos.
+2. Automatización de procesos.
+3. Seguridad, rendimiento y recuperación.
+4. Integración de bases relacionales y documentales.
+5. Integración ETL y almacenamiento dimensional.
+
+Todos los datos utilizados son sintéticos y tienen
+fines exclusivamente académicos.
 
 ## Versionado
 
