@@ -11,8 +11,9 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="E03_ExtraerTransformar"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{BE84EAA9-8DF7-401F-8674-D3D8C9712626}">
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{9AAA5DAC-3BE9-45BB-BF2A-1E7B36627CB3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2429,6 +2430,10 @@ FROM stg.Atencion;</property>
           Id="Package\DFT_E03_TransformarClasificar"
           TopLeft="263,192" />
         <NodeLayout
+          Size="159,42"
+          Id="Package\SQL_CargarDW"
+          TopLeft="392,285" />
+        <NodeLayout
           Size="169,42"
           Id="Package\SQL_PrepararE03"
           TopLeft="267.5,7.5" />
@@ -2500,10 +2505,6 @@ FROM stg.Atencion;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\SQL_CargarDW"
-          TopLeft="392,285" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
           TopLeft="381.5,234">
@@ -2545,51 +2546,45 @@ FROM stg.Atencion;</property>
     design-time-name="Package\DFT_E03_ExtraerAStaging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="127,42"
           Id="Package\DFT_E03_ExtraerAStaging\SRC_HIS"
           TopLeft="113,135" />
         <NodeLayout
-          Size="158,42"
-          Id="Package\DFT_E03_ExtraerAStaging\SRC_Campania"
-          TopLeft="421,137" />
+          Size="144,42"
+          Id="Package\DFT_E03_ExtraerAStaging\DST_Staging"
+          TopLeft="274,290" />
         <NodeLayout
           Size="165,42"
           Id="Package\DFT_E03_ExtraerAStaging\UNION_Entradas"
           TopLeft="269,208" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT_E03_ExtraerAStaging\SRC_Campania"
+          TopLeft="421,137" />
         <EdgeLayout
-          Id="Package\DFT_E03_ExtraerAStaging.Paths[Salida de origen de OLE DB]"
-          TopLeft="176.5,177">
+          Id="Package\DFT_E03_ExtraerAStaging.Paths[Salida de Unión de todo 1]"
+          TopLeft="348.75,250">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="175,31"
+              EndConnector="0,40"
               Start="0,0"
-              End="175,23.5">
+              End="0,32.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.5"
-                    Point2="0,15.5"
-                    Point3="4,15.5" />
-                  <mssgle:LineSegment
-                    End="171,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="171,15.5"
-                    Point2="175,15.5"
-                    Point3="175,19.5" />
-                  <mssgle:LineSegment
-                    End="175,23.5" />
+                    End="0,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2623,33 +2618,45 @@ FROM stg.Atencion;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="144,42"
-          Id="Package\DFT_E03_ExtraerAStaging\DST_Staging"
-          TopLeft="274,290" />
         <EdgeLayout
-          Id="Package\DFT_E03_ExtraerAStaging.Paths[Salida de Unión de todo 1]"
-          TopLeft="348.75,250">
+          Id="Package\DFT_E03_ExtraerAStaging.Paths[Salida de origen de OLE DB]"
+          TopLeft="176.5,177">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40"
+              EndConnector="175,31"
               Start="0,0"
-              End="0,32.5">
+              End="175,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
+                  <mssgle:LineSegment
+                    End="171,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="171,15.5"
+                    Point2="175,15.5"
+                    Point3="175,19.5" />
+                  <mssgle:LineSegment
+                    End="175,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2690,85 +2697,29 @@ FROM stg.Atencion;</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="177,42"
+          Id="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos"
+          TopLeft="298,173" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\DFT_E03_TransformarClasificar\DST_Validas"
+          TopLeft="347,466" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\DFT_E03_TransformarClasificar\DST_Rechazadas"
+          TopLeft="568,463" />
+        <NodeLayout
           Size="146,42"
           Id="Package\DFT_E03_TransformarClasificar\SRC_Staging"
           TopLeft="226,73" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\DFT_E03_TransformarClasificar\DER_LimpiarTextos"
-          TopLeft="298,173" />
-        <EdgeLayout
-          Id="Package\DFT_E03_TransformarClasificar.Paths[Salida de origen de OLE DB]"
-          TopLeft="299,115">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="87.5,58"
-              Start="0,0"
-              End="87.5,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25"
-                    Point2="0,29"
-                    Point3="4,29" />
-                  <mssgle:LineSegment
-                    End="83.5,29" />
-                  <mssgle:CubicBezierSegment
-                    Point1="83.5,29"
-                    Point2="87.5,29"
-                    Point3="87.5,33" />
-                  <mssgle:LineSegment
-                    End="87.5,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="151,42"
+          Id="Package\DFT_E03_TransformarClasificar\SPL_Clasificar"
+          TopLeft="453,413" />
         <NodeLayout
           Size="162,42"
           Id="Package\DFT_E03_TransformarClasificar\DER_Homologar"
           TopLeft="383,267" />
-        <EdgeLayout
-          Id="Package\DFT_E03_TransformarClasificar.Paths[Salida de columna derivada]"
-          TopLeft="386.5,215">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="77.5,52"
-              Start="0,0"
-              End="77.5,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22"
-                    Point2="0,26"
-                    Point3="4,26" />
-                  <mssgle:LineSegment
-                    End="73.5,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="73.5,26"
-                    Point2="77.5,26"
-                    Point3="77.5,30" />
-                  <mssgle:LineSegment
-                    End="77.5,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="143,42"
           Id="Package\DFT_E03_TransformarClasificar\DER_Validar"
@@ -2804,13 +2755,143 @@ FROM stg.Atencion;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="151,42"
-          Id="Package\DFT_E03_TransformarClasificar\SPL_Clasificar"
-          TopLeft="453,413" />
+        <EdgeLayout
+          Id="Package\DFT_E03_TransformarClasificar.Paths[Salida de columna derivada]"
+          TopLeft="386.5,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77.5,52"
+              Start="0,0"
+              End="77.5,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="4,26" />
+                  <mssgle:LineSegment
+                    End="73.5,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="73.5,26"
+                    Point2="77.5,26"
+                    Point3="77.5,30" />
+                  <mssgle:LineSegment
+                    End="77.5,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_E03_TransformarClasificar.Paths[Rechazadas]"
+          TopLeft="604,434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48,29"
+              Start="0,0"
+              End="48,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="44,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="44,0"
+                    Point2="48,0"
+                    Point3="48,4" />
+                  <mssgle:LineSegment
+                    End="48,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="21.542421875,-15.7490234375,52.91515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_E03_TransformarClasificar.Paths[Validas]"
+          TopLeft="453,434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.5,32"
+              Start="0,0"
+              End="-34.5,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-30.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5,0"
+                    Point2="-34.5,0"
+                    Point3="-34.5,4" />
+                  <mssgle:LineSegment
+                    End="-34.5,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-50.94576171875,-15.7490234375,32.8915234375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_E03_TransformarClasificar.Paths[Salida de origen de OLE DB]"
+          TopLeft="299,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="87.5,58"
+              Start="0,0"
+              End="87.5,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="4,29" />
+                  <mssgle:LineSegment
+                    End="83.5,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.5,29"
+                    Point2="87.5,29"
+                    Point3="87.5,33" />
+                  <mssgle:LineSegment
+                    End="87.5,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_E03_TransformarClasificar.Paths[Salida de columna derivada2]"
           TopLeft="508,383.5">
@@ -2842,74 +2923,8 @@ FROM stg.Atencion;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="143,42"
-          Id="Package\DFT_E03_TransformarClasificar\DST_Validas"
-          TopLeft="347,466" />
-        <EdgeLayout
-          Id="Package\DFT_E03_TransformarClasificar.Paths[Validas]"
-          TopLeft="453,434">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-34.5,32"
-              Start="0,0"
-              End="-34.5,24.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-30.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-30.5,0"
-                    Point2="-34.5,0"
-                    Point3="-34.5,4" />
-                  <mssgle:LineSegment
-                    End="-34.5,24.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-50.94576171875,-15.7490234375,32.8915234375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\DFT_E03_TransformarClasificar\DST_Rechazadas"
-          TopLeft="568,463" />
-        <EdgeLayout
-          Id="Package\DFT_E03_TransformarClasificar.Paths[Rechazadas]"
-          TopLeft="604,434">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="48,29"
-              Start="0,0"
-              End="48,21.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="44,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="44,0"
-                    Point2="48,0"
-                    Point3="48,4" />
-                  <mssgle:LineSegment
-                    End="48,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="21.542421875,-15.7490234375,52.91515625,9.7490234375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
